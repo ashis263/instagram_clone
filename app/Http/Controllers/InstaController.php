@@ -12,18 +12,18 @@ class InstaController extends Controller
 {
     public function index()
     {
-        return view('index')->with(["errorMessage"=>""]);
+        return view('/index')->with(["errorMessage"=>""]);
     }
     public function signup()
     {
-        return view('signup')->with('errorMessage', '')->with('successMessage', '');
+        return view('/signup')->with('errorMessage', '')->with('successMessage', '');
     }
     public function login(Request $req)
     {
         $emailOrPhone = $req->emailorphone;
         $password = $req->password;
         $user=instagram_clone::where('emailOrPhone', $emailOrPhone)->first();
-        if(!isset($user)) return view("index")->with('errorMessage' , 'Incorrect phone number or email')->with('successMessage', '');
+        if(!isset($user)) return view("/index")->with('errorMessage' , 'Incorrect phone number or email')->with('successMessage', '');
         $hashed= $user->password;
         $id=$user->id;
         $url="/home/".strval($id);
@@ -34,24 +34,24 @@ class InstaController extends Controller
             $cookie = Cookie::make($emailOrPhone,$rememberToken);
             return redirect($url)->withCookie($cookie);
         }else{
-            return view("index")->with('errorMessage' , 'Incorrect Password')->with('successMessage', '');
+            return view("/index")->with('errorMessage' , 'Incorrect Password')->with('successMessage', '');
         }
     }
     public function disclaimer()
     {
-        return view('disclaimer');
+        return view('/disclaimer');
     }
     public function saveUser(Request $_request)
     {
         $emailOrPhone = $_request->input('emailOrPhone');
         $dupEmailOrPhone = DB::table('users')->where('emailOrPhone', $emailOrPhone)->first();
         if($dupEmailOrPhone){
-            return view('signup')->with('errorMessage', 'Already registered! Please login!')->with('successMessage', '');
+            return view('/signup')->with('errorMessage', 'Already registered! Please login!')->with('successMessage', '');
         }
         $username = $_request->input('username');
         $dupUsername = DB::table('users')->where('username', $username)->first();
         if($dupUsername){
-            return view('signup')->with('errorMessage', 'Username already exists, choose another one!')->with('successMessage', '');
+            return view('/signup')->with('errorMessage', 'Username already exists, choose another one!')->with('successMessage', '');
         }
         $fullname = $_request->input('fullname');
         $password = Hash::make($_request->input('password'));
@@ -66,7 +66,7 @@ class InstaController extends Controller
 
         $user->save();
 
-        return view('signup')->with('errorMessage', '')->with('successMessage', 'Signup Successful, please login!');
+        return view('/signup')->with('errorMessage', '')->with('successMessage', 'Signup Successful, please login!');
     }
     public function home($id)
     {
@@ -75,7 +75,7 @@ class InstaController extends Controller
         $savedRememberToken=$data->rememberToken;
         $cookieRememberToken=Cookie::get($emailOrPhone);
         if($savedRememberToken==$cookieRememberToken){
-            return view('home', ['instagram_clone' => $data]);
+            return view('/home', ['instagram_clone' => $data]);
         }else{
             return redirect('/');
         }
@@ -83,11 +83,11 @@ class InstaController extends Controller
     public function profile($id)
     {
         $data = instagram_clone::find($id);
-        $userName=$data->username;
+        $emailOrPhone=$data->emailOrPhone;
         $savedRememberToken=$data->rememberToken;
-        $cookieRememberToken=Cookie::get($userName);
+        $cookieRememberToken=Cookie::get($emailOrPhone);
         if($savedRememberToken==$cookieRememberToken){
-            return view('profile', ['instagram_clone' => $data]);
+            return view('/profile', ['instagram_clone' => $data]);
         }else{
             return redirect('/');
         }
@@ -99,9 +99,6 @@ class InstaController extends Controller
 
     public function logout($id){
         $data= instagram_clone::find($id);
-        $data->rememberToken = "";
-
-        $data->save();
 
         Cookie::queue(Cookie::forget($data->emailOrPhone));
 

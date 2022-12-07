@@ -93,7 +93,7 @@
                 <div class="post">
                     <img class="post-dp" src="{{Vite::asset('./resources/images/home/follow1.png')}}"/>
                     <p>nomadev01</p>
-                
+
                     <p><b>...</b></p>
                 </div>
             </div>
@@ -143,7 +143,7 @@
                 <div class="post">
                     <img class="post-dp" src="{{Vite::asset('./resources/images/home/follow2.png')}}"/>
                     <p>shinsuchi</p>
-                
+
                     <p><b>...</b></p>
                 </div>
             </div>
@@ -193,7 +193,7 @@
                 <div class="post">
                     <img class="post-dp" src="{{Vite::asset('./resources/images/home/follow1.png')}}"/>
                     <p>nomadev01</p>
-                
+
                     <p><b>...</b></p>
                 </div>
             </div>
@@ -243,7 +243,7 @@
                 <div class="post">
                     <img class="post-dp" src="{{Vite::asset('./resources/images/home/follow2.png')}}"/>
                     <p>shinsuchi</p>
-                
+
                     <p><b>...</b></p>
                 </div>
             </div>
@@ -369,7 +369,7 @@
                 <div class="switch-follow">
                     <p>Follow</p>
                 </div>
-            </div> 
+            </div>
         </div>
         <div class="follow-section">
             <div class="follow-section-div">
@@ -383,7 +383,7 @@
                 <div class="switch-follow">
                     <p>Follow</p>
                 </div>
-            </div> 
+            </div>
         </div>
     </main>
     <footer>

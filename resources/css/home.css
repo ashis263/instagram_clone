@@ -1,6 +1,6 @@
 *{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;    
+    font-size: 14px;
     box-sizing: border-box;
 }
 body{
@@ -14,7 +14,7 @@ header{
     position: static;
     align-items: center;
     min-height: 10px;
-    
+
 
     overflow: hidden;
     background-color: #fff;
@@ -30,10 +30,10 @@ header .first{
 }
 
 header .logo{
-    width: 8vw; 
+    width: 8vw;
     min-width: 100px;
     min-height: 5vh;
-    padding-top: .5rem; 
+    padding-top: .5rem;
 }
 
 header div .logo-nav{
@@ -64,7 +64,7 @@ header div .logo-nav{
 .search-box i{
     padding-left: .5rem;
     margin-top: .5rem;
-    
+
 }
 
 .search-box input{
@@ -149,7 +149,7 @@ main{
 
 .posts{
     margin: 0px 0px 12px 0px;
-    
+
     border: 1px solid black;
     border-radius: .5rem;
 }
@@ -194,7 +194,7 @@ main{
 .react li i{
     min-width: 2.5rem;
     font-size: 1.3rem;
-    
+
 }
 
 .save{
@@ -206,7 +206,7 @@ main{
 
 .save li i{
     font-size: 1.3rem;
-    
+
 }
 
 .info{
@@ -233,7 +233,7 @@ main{
 .emoji i{
     width: 2.5rem;
     font-size: 1.3rem;
-    
+
 }
 
 .emoji input{
@@ -244,7 +244,7 @@ main{
 
 
 .emoji p{
-    color: skyblue;
+    color: rgb(26, 123, 241);
     /* padding-right: 1.2rem; */
 }
 
@@ -265,7 +265,7 @@ main{
 }
 
 .switch-follow{
-    color: skyblue;
+    color: rgb(26, 123, 241);
     padding-top: .2rem;
 }
 
@@ -273,7 +273,7 @@ main{
     height: 3.5rem;
     width: 3.5rem;
     border-radius: 50%;
-    
+
 }
 
 
