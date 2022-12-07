@@ -1,0 +1,140 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px !important;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid;
+    position: static;
+    align-items: center;
+    min-height: 10px;
+
+
+    overflow: hidden;
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+
+header .first {
+    display: flex;
+    justify-items: flex-end;
+    align-items: center;
+}
+
+header .logo {
+    width: 8vw;
+    min-width: 100px;
+    min-height: 5vh;
+    padding-top: .5rem;
+}
+
+header div .logo-nav {
+    list-style-type: none;
+    margin: 0;
+    /* padding-top: 12px; */
+    /* padding-left: 5px; */
+}
+
+
+.search-box {
+    background-color: rgba(239, 239, 239, 5);
+    height: 2rem;
+    width: 15rem;
+    border-radius: .5rem;
+    justify-items: center;
+    margin-top: .2rem;
+    ;
+}
+
+.search-box input {
+    width: 13rem;
+    font-size: 16px;
+    outline: none;
+}
+
+.file {
+    display: none;
+}
+
+.upload-btn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.search-box i {
+    padding-left: .5rem;
+    margin-top: .5rem;
+
+}
+
+.search-box input {
+    background-color: rgba(239, 239, 239, 5);
+    border: none;
+    border-radius: 1rem;
+}
+
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+}
+
+.nav ul li i {
+    margin: 0;
+    padding: 0;
+    min-width: 2.5rem;
+    font-size: 1.3rem;
+}
+
+.dp {
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 1rem;
+}
+
+.logout {
+    width: 120px;
+    height: 20px;
+    font-size: 12px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 2px;
+    position: relative;
+    left: 10px;
+    text-decoration: none;
+    color: black;
+}
+.menu-icon {
+    cursor: pointer;
+    text-align: center;
+}
+@media (max-width: 975px) {
+    header {
+        top: 0;
+    }
+
+    .menu-icon,
+    .search-box,
+    .logo-nav {
+        display: none;
+    }
+}
