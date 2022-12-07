@@ -1,0 +1,114 @@
+.signup-box{
+    margin: 0 auto;
+    width: 300px;
+    height: 385px;
+    position: relative;
+    top: 35px;
+    border: 1px solid rgb(221, 221, 221);
+}
+.logo{
+    max-width: 150px;
+    position: relative;
+    top: 32px;
+    left: 77px;
+}
+.signup{
+    margin-top: 52px;
+}
+
+input{
+    width: 75%;
+    height: 27px;
+    margin: 2px 35px;
+    border-width: thin;
+    border-color: rgb(221, 221, 221);
+    font-size: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+input[type=submit]{
+    width: 77%;
+    margin: 10px 36px;
+    background-color: rgb(26, 123, 241);
+    color: white;
+    border-color: transparent;
+    border-radius: 2px;
+}
+
+.error{
+    color: red;
+    text-align: center;
+}
+.success{
+    color: rgb(42, 156, 27);
+    text-align: center;
+}
+.alternative{
+    color: grey;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1px;
+    position: relative;
+    top: 37px;
+}
+.alternative a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;;
+}
+.alternative button{
+    width: 77%;
+    height: 25px;
+    margin: 10px 36px;
+    background-color: rgb(26, 123, 241);
+    color: white;
+    border-color: transparent;
+    border-radius: 2px;
+}
+
+.login{
+    margin: 0 auto;
+    width: 300px;
+    height: 50px;
+    border: 1px solid rgb(221, 221, 221);
+    position: relative;
+    top: 34px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.login a{
+    color: rgb(26, 123, 241);
+    text-decoration: none;
+}
+.store{
+    display: flex;
+    position: relative;
+    top: 58px;
+    left: 28px;
+}
+
+.store img{
+    width: 121px;
+    height: 40px;
+}
+.links a{
+    font-size: small;
+    color: grey;
+    text-decoration: none;
+}
+.links{
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+footer{
+    font-size: small;
+    color: grey;
+    text-align: center;
+    position: relative;
+    top: 187px;
+}
