@@ -29,30 +29,39 @@
         <div class="nav">
             <ul>
                 <li class="menu-icon">
-                    <i class="fa-solid fa-house"></i>
+                    <a href="/home/{{$instagram_clone->id}}"><i title="Home" class="fa-solid fa-house"></i></a>
                 </li>
                 <li class="menu-icon">
+                    <a href="">
+                        <button class="invalid-btn" onclick="invalidClick()">
+                            <i title="Messages" class="fa-brands fa-facebook-messenger"></i>
+                        </button>
+                        </a>
+                    </li>
+                    <li class="menu-icon">
 
-                    <i class="fa-brands fa-facebook-messenger"></i>
-                </li>
-                <li class="menu-icon">
+                        <button class="upload-btn" title="Upload Photo" onclick="uploadClick()">
 
-                    <button class="upload-btn" title="Upload Photo" onclick="uploadClick()">
-
-                        <i class="fa-regular fa-square-plus"></i>
-                    </button>
-                </li>
-                <li class="menu-icon">
-
-                    <i class="fa-regular fa-compass"></i>
-                </li>
-                <li class="menu-icon">
-
-                    <i class="fa-regular fa-heart"></i>
+                            <i class="fa-regular fa-square-plus"></i>
+                        </button>
+                    </li>
+                    <li class="menu-icon">
+                        <a href="">
+                        <button class="invalid-btn" onclick="invalidClick()">
+                            <i title="Explore" class="fa-regular fa-compass"></i>
+                        </button>
+                        </a>
+                    </li>
+                    <li class="menu-icon">
+                        <a href="">
+                        <button class="invalid-btn" onclick="invalidClick()">
+                        <i title="Likes" class="fa-regular fa-heart"></i>
+                        </button>
+                    </a>
                 </li>
                 <li>
                     <a href="/profile/{{$instagram_clone->id}}">
-                        <img class="menu-icon dp" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
+                        <img title="Profile" class="menu-icon dp" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
                     </a>
                 </li>
                 <li>

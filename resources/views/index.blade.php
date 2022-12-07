@@ -27,7 +27,12 @@
             <div class="alternative">
                 <p><b>OR</b></p>
                 <br>
-                <p><a href="/disclaimer"><i class="fa-brands fa-square-facebook"></i> Log in With Facebook</a></p>
+                <button class="invalid-btn" onclick="invalidClick()">
+                        <a href="">
+
+                        <i class="fa-brands fa-square-facebook"></i> Log in With Facebook
+                    </a>
+                    </button>
                 <p>Forgot Password?</p>
             </div>
             <div class="signup">
@@ -59,5 +64,6 @@
         </div>
         <p>© 2022 Instagram from Meta</p>
     </footer>
+    <script src="{{Vite::asset('./resources/js/insta.js')}}"></script>
 </body>
 </html>

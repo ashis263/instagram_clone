@@ -236,7 +236,7 @@
                 <div class="profile">
                     <img class="main-dp" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
                     <p>
-                        {{$instagram_clone->username}}
+                        <a class="profile-link" href="/profile/{{$instagram_clone->id}}"><b title="Profile">{{$instagram_clone->username}}</b></a>
                         <br>
                         {{$instagram_clone->fullname}}
                     </p>

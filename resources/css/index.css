@@ -102,6 +102,13 @@ input[type=submit]{
     text-decoration: none;
     font-size: 14px;;
 }
+.invalid-btn{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
 
 .signup{
     width: 300px;

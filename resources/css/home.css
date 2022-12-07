@@ -250,9 +250,14 @@ main{
     margin: 100px 0px 0px 0px;
 }
 
+.profile-link{
+    text-decoration: none;
+    color: black;
+}
 
 .profile p{
-    padding-left: 1.2rem;;
+    padding-left: 1.2rem;
+    margin: 0 auto;
 }
 
 .switch-follow{

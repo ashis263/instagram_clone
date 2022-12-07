@@ -37,10 +37,6 @@ class InstaController extends Controller
             return view("/index")->with('errorMessage' , 'Incorrect Password')->with('successMessage', '');
         }
     }
-    public function disclaimer()
-    {
-        return view('/disclaimer');
-    }
     public function saveUser(Request $_request)
     {
         $emailOrPhone = $_request->input('emailOrPhone');

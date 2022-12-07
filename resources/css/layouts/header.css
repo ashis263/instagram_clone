@@ -67,13 +67,6 @@ header div .logo-nav {
     display: none;
 }
 
-.upload-btn {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    margin: 0;
-}
 
 
 
@@ -105,6 +98,21 @@ ul {
     min-width: 2.5rem;
     font-size: 1.3rem;
 }
+.upload-btn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.invalid-btn{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
 
 .dp {
     height: 1.3rem;
@@ -120,12 +128,18 @@ ul {
     border-radius: 2px;
     position: relative;
     left: 10px;
+    top: -2px;
     text-decoration: none;
     color: black;
 }
-.menu-icon {
+.menu-icon{
     cursor: pointer;
     text-align: center;
+}
+
+.menu-icon a{
+
+    color: black;
 }
 @media (max-width: 975px) {
     header {

@@ -6,7 +6,7 @@
             <div class="details">
                 <div class="firstline">
                     <h1>{{$instagram_clone->username}}</h1>
-                    <button class="edit-profile">Edit profile</button>
+                    <button class="edit-profile invalid-btn" onclick="invalidClick()">Edit profile</button>
                 </div>
                 <pre>0 posts        0 followers         0 following</pre>
                 <p><b>{{$instagram_clone->fullname}}</b></p>
