@@ -19,7 +19,7 @@
                 @csrf
                 @method('put')
                 <input id="emailOrPhone" type="text" placeholder="Phone number or email" required name="emailorphone">
-                <input id="password" type="pasword" placeholder="Password" required name="password">
+                <input id="password" type="password" placeholder="Password" required name="password">
                 <div class="error">{{$errorMessage}}</div>
                 <br>
                 <input id="submit" type="submit" id="submit_btn" value="Log in">

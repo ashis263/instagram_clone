@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\photos;
 class instagram_clone extends Model
 {
     use HasFactory;
@@ -15,6 +15,10 @@ class instagram_clone extends Model
         'fullname',
         'username',
         'rememberToken',
+        'dp',
         'password',
     ];
+    public function photos(){
+        return $this->hasMany(photos::class, 'users_id', 'id');
+    }
 }

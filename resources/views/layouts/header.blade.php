@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Instagram-Profile</title>
 </head>
 
 <body>
@@ -24,7 +23,7 @@
         </div>
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" placeholder="Search">
+            <input type="search" placeholder="Search" onkeypress="invalidClick()">
         </div>
         <div class="nav">
             <ul>
@@ -36,14 +35,15 @@
                         <button class="invalid-btn" onclick="invalidClick()">
                             <i title="Messages" class="fa-brands fa-facebook-messenger"></i>
                         </button>
-                        </a>
-                    </li>
-                    <li class="menu-icon">
-
-                        <button class="upload-btn" title="Upload Photo" onclick="uploadClick()">
-
-                            <i class="fa-regular fa-square-plus"></i>
-                        </button>
+                    </a>
+                </li>
+                <li class="menu-icon">
+                        <form id="upload-form" class="upload-form" action="/upload/{{$instagram_clone->id}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('put')
+                            <input id="file" type="file" name="photo" accept="image/*" onchange="upload()">
+                        </form>
+                        <i class="fa-regular fa-square-plus" onclick="selectPhoto()"></i>
                     </li>
                     <li class="menu-icon">
                         <a href="">
@@ -61,7 +61,7 @@
                 </li>
                 <li>
                     <a href="/profile/{{$instagram_clone->id}}">
-                        <img title="Profile" class="menu-icon dp" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
+                        <img title="Profile" class="menu-icon dp" src="{{ Vite::asset('storage/app/public/images/dp/'.$instagram_clone->dp) }}" alt="Profile Picture">
                     </a>
                 </li>
                 <li>
@@ -69,6 +69,5 @@
                 </li>
 
             </ul>
-            <input id="file" class="file" type="file">
         </div>
     </header>

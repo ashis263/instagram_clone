@@ -1,10 +1,13 @@
 @include('layouts.header')
+<head>
+    <title>Instagram-Home</title>
+</head>
 @vite(['resources/css/home.css'])
     <main>
     <div class="scrollable">
         <div class="stories">
             <div>
-                <img class="story" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}">
+                <img class="story" src="{{ Vite::asset('storage/app/public/images/dp/'.$instagram_clone->dp) }}">
                 <p>My Story</p>
             </div>
             <div>
@@ -29,8 +32,61 @@
             </div>
         </div>
 
-        <div class="posts">
-            <div class="user">
+        <div>
+            @foreach ($photos as $item)
+                <div class="posts">
+                    <div class="user">
+                        <div class="post">
+                            <img class="post-dp" src="{{Vite::asset('storage/app/public/images/dp/'.$item->users->dp)}}"/>
+                            <p>nomadev01</p>
+
+                            <p><b>...</b></p>
+                        </div>
+                    </div>
+                    <div>
+                        <img class="post-pic" src="{{Vite::asset('storage/app/public/images/'.$item->filename)}}"/>
+                    </div>
+                    <div class="interaction">
+                        <div>
+                            <ul class="react">
+                                <li><i class="fa-regular fa-heart"></i></li>
+                                <li><i class="fa-regular fa-comment"></i></li>
+                                <li><i class="fa-regular fa-paper-plane"></i></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="save">
+                                <li>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p>
+                            <b>50 Likes</b>
+                        </p>
+                        <p>
+                            <b>nomadev01</b> Patience — what you have when there are too many witnesses.
+                        </p>
+                        <p>
+                            View all comments
+                        </p>
+                        <p>
+                            1 DAY AGO
+                        </p>
+                    </div>
+                    <div class="last">
+                        <div class="emoji">
+                            <i class="fa-regular fa-face-surprise"></i>
+                            <input type="text" placeholder="Add a comment..."/>
+                            <p>Post</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+            {{-- <div class="user">
                 <div class="post">
                     <img class="post-dp" src="{{Vite::asset('./resources/images/home/follow1.png')}}"/>
                     <p>nomadev01</p>
@@ -227,14 +283,14 @@
                     <input type="text" placeholder="Add a comment..."/>
                 <p>Post</p>
                 </div>
-            </div>
-        </div>
+        </div> --}}
+    </div>
     </div>
     <div class="non-scrollable">
         <section class="profile-section">
             <div class="profile-section-div">
                 <div class="profile">
-                    <img class="main-dp" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
+                    <img class="main-dp" src="{{ Vite::asset('storage/app/public/images/dp/'.$instagram_clone->dp) }}" alt="Profile Picture">
                     <p>
                         <a class="profile-link" href="/profile/{{$instagram_clone->id}}"><b title="Profile">{{$instagram_clone->username}}</b></a>
                         <br>

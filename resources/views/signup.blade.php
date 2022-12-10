@@ -18,13 +18,15 @@
                 <br>
                 <p><b>OR</b></p>
             </div>
-            <form class="signup" action="/saveUser" method="POST">
+            <form class="signup" action="/saveUser" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <input type="text" name="emailOrPhone" placeholder="Phone number or email" required>
                 <input type="text" name="fullname" placeholder="Fullname" required>
                 <input type="text" name="username" placeholder="Username" required>
-                <input type="pasword" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <label for="dp"><p>Select a profile picture</p></label>
+                <input type="file" id="dp" name="dp" accept="image/*" required>
                 <div class="error">{{$errorMessage}}</div>
                 <div class="success">{{$successMessage}}</div>
                 <input type="submit" value="Sign up">

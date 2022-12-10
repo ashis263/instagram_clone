@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\instagram_clone;
+use App\Models\photos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class InstaController extends Controller
 {
@@ -50,6 +52,9 @@ class InstaController extends Controller
             return view('/signup')->with('errorMessage', 'Username already exists, choose another one!')->with('successMessage', '');
         }
         $fullname = $_request->input('fullname');
+        $dp = $_request->file('dp');
+        $dpname = $dp->getClientOriginalName();
+        Storage::putFileAs('public/images/dp', $_request->file('dp'), $dpname);
         $password = Hash::make($_request->input('password'));
 
         $user = new instagram_clone();
@@ -58,6 +63,7 @@ class InstaController extends Controller
         $user->username = $username;
         $user->fullname = $fullname;
         $user->password = $password;
+        $user->dp = $dpname;
         $user->rememberToken = "";
 
         $user->save();
@@ -66,24 +72,26 @@ class InstaController extends Controller
     }
     public function home($id)
     {
-        $data = instagram_clone::find($id);
-        $emailOrPhone = $data->emailOrPhone;
-        $savedRememberToken=$data->rememberToken;
+        $user = instagram_clone::find($id);
+        $photos = photos::all();
+        $emailOrPhone = $user->emailOrPhone;
+        $savedRememberToken=$user->rememberToken;
         $cookieRememberToken=Cookie::get($emailOrPhone);
         if($savedRememberToken==$cookieRememberToken){
-            return view('/home', ['instagram_clone' => $data]);
+            return view('/home', ['instagram_clone' => $user, 'photos' => $photos]);
         }else{
             return redirect('/');
         }
     }
     public function profile($id)
     {
-        $data = instagram_clone::find($id);
-        $emailOrPhone=$data->emailOrPhone;
-        $savedRememberToken=$data->rememberToken;
+        $user = instagram_clone::find($id);
+        $photos = $user->photos;
+        $emailOrPhone=$user->emailOrPhone;
+        $savedRememberToken=$user->rememberToken;
         $cookieRememberToken=Cookie::get($emailOrPhone);
         if($savedRememberToken==$cookieRememberToken){
-            return view('/profile', ['instagram_clone' => $data]);
+            return view('/profile', ['instagram_clone' => $user, 'photos' => $photos]);
         }else{
             return redirect('/');
         }
@@ -99,5 +107,15 @@ class InstaController extends Controller
         Cookie::queue(Cookie::forget($data->emailOrPhone));
 
         return redirect('/');
+    }
+
+    public function upload(Request $req, $id){
+        $filename=$req->file('photo')->getClientOriginalName();
+        $photo= new photos();
+        $photo->users_id=$id;
+        $photo->filename=$filename;
+        $photo->save();
+        Storage::putFileAs('public/images/', $req->file('photo'), $filename);
+        return back();
     }
 }

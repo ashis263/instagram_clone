@@ -1,8 +1,11 @@
 @include('layouts.header')
+<head>
+    <title>Instagram-Profile</title>
+</head>
 @vite(['resources/css/profile.css'])
     <main>
         <section class="profile-section">
-            <img class="profile-dp" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
+            <img class="profile-dp" src="{{ Vite::asset('storage/app/public/images/dp/'.$instagram_clone->dp) }}" alt="Profile Picture">
             <div class="details">
                 <div class="firstline">
                     <h1>{{$instagram_clone->username}}</h1>
@@ -21,6 +24,11 @@
                 <i class="fa-solid fa-address-card">Tagged</i>
             </div>
             <div class="line">
+                @foreach ($photos as $item)
+                    <img class="post" src="{{ Vite::asset('./storage/app/public/images/'.$item->filename)}}" alt="Profile Picture">
+                @endforeach
+            </div>
+            {{-- <div class="line">
                 <img class="post" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
                 <img class="post" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
                 <img class="post" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
@@ -39,12 +47,7 @@
                 <img class="post" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
                 <img class="post" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
                 <img class="post" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
-            </div>
-            <div class="line">
-                <img class="post" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
-                <img class="post" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
-                <img class="post" src="{{ Vite::asset('./resources/images/home/dp.jpg') }}" alt="Profile Picture">
-            </div>
+            </div> --}}
         </section>
     </main>
 @include('layouts.footer')

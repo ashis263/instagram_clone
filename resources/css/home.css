@@ -166,7 +166,9 @@ main{
 }
 
 .post-pic{
-    width: 100%;
+    width: 486px;
+    height: 486px;
+    object-fit: cover;
 }
 
 .interaction{

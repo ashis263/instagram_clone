@@ -20,4 +20,5 @@ Route::put('/login', [InstaController::class, 'login']);
 Route::put('/saveUser', [InstaController::class, 'saveUser']);
 Route::get('/home/{id}', [InstaController::class, 'home']);
 Route::get('/profile/{id}', [InstaController::class, 'profile']);
+Route::put('/upload/{id}', [InstaController::class, 'upload']);
 Route::get('/logout/{id}', [InstaController::class, 'logout']);
